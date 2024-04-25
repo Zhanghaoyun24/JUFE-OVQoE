@@ -56,8 +56,6 @@ for i=1:size(video_name_list,1)
             mkdir(folder);
         end
         % head data: pitch, yaw, roll, eye data: latitude, longitude
-        %xlswrite([folder,hmd_files(k).name],subfile);
-        %
         writecell(subfile, [folder,hmd_files(k).name], 'FileType', 'text');
         
         fprintf('file: %s.\n',hmd_files(k).name);
