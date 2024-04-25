@@ -2,7 +2,7 @@ clc;
 clear all;
 
 video_path = 'D:\Unity projects\VRQoE\Test_session\video\';  % Change to your video path
-hmdata_path = './final_myhmd/user/';  
+hmdata_path = './final_myhmd/';  
 
 %Setting the viewport size
 FOV_horizontal = deg2rad(120);
