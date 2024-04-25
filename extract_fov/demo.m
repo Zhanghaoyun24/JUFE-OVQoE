@@ -4,7 +4,7 @@ clear all;
 video_path = 'D:\Unity projects\VRQoE\Test_session\video\';  % Change to your video path
 hmdata_path = './final_myhmd/user/';  
 
-% 视口大小设置
+%Setting the viewport size
 FOV_horizontal = deg2rad(120);
 FOV_vertical = deg2rad(120);
 
