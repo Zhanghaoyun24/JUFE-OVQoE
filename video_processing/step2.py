@@ -15,7 +15,6 @@ for video_path in video_paths:
             video = video_folder + video_path +'/'+ video_name
             if not os.path.exists(f'./SS/{video_name[:-4]}'):
                 os.makedirs(f'./SS/{video_name[:-4]}')
-                # 视频QP不为29时，防止被处理为默认29
             if video_name[-6:-4] in dict.keys():
                 print(dict[video_name[-6:-4]])
                 os.system(
