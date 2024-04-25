@@ -28,12 +28,12 @@ for video_path in video_paths:
                     else:
                         width = int(cap1.get(cv2.CAP_PROP_FRAME_WIDTH))
                         height = int(cap1.get(cv2.CAP_PROP_FRAME_HEIGHT))
-                    # 实现不同分辨率视频拼接
+                    # Video concat with different resolutions
                     os.system(
                         f'ffmpeg -i {seg1} -i {seg2} -filter_complex "[0:v:0]scale={width}x{height}[video1];[1:v:0]scale={width}x{height}[video2];[video1][video2]concat=n=2:v=1:a=0[outv]" -map "[outv]" -vsync 2 LS/{video[:-12]}/{video[:-12]}_{seg1[-11:-9]}{seg2[-11:-9]}.mp4'
                     )
                 else:
-                    # 此命令可实现不同帧率的视频拼接
+                    # Video concat with different framerate
                     os.system(
                         f'ffmpeg -i {seg1} -i {seg2} -filter_complex "[0:v:0][1:v:0]concat=n=2:v=1:a=0[outv]" -map "[outv]" -vsync 2 LS/{video[:-12]}/{video[:-12]}_{seg1[-11:-9]}{seg2[-11:-9]}.mp4'
                     )
