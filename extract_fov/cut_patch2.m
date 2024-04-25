@@ -1,4 +1,4 @@
-function img_patch = cut_patch2(a, longitude, latitude, fov_horizontal, fov_vertical)
+function img_patch = cut_patch(a, longitude, latitude, fov_horizontal, fov_vertical)
     [sizeiny, sizeinx] = size(a);
     sizeoutx = fov_horizontal;
     sizeouty = fov_vertical;
