@@ -38,7 +38,7 @@ for i=1:size(HMD_files,1)-2
 %             newCurrentVideoData = cell2mat(newCurrentVideoData);
 %         end
         saveFolder = ['.\Processed_HMD\Session\', video_name, '\'];
-        if (~exist(saveFolder,'dir'))%%判断文件夹是否存在
+        if (~exist(saveFolder,'dir'))
              mkdir(saveFolder);  
         end
         dataSavePath = [saveFolder,video_name,'_',num2str(i,'%02d'),'.csv'];
