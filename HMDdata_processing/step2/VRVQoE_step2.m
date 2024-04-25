@@ -2,7 +2,7 @@ clc;
 clear all;
 
 org_file_path = '../Processed_HMD/Session/';
-save_file_path = '../step1_Processed_HMD/Session/';
+save_file_path = '../step2_Processed_HMD/Session/';
 
 [~,~,videoInfo] = xlsread('D:\Unity projects\VRQoE\Test_Session\videolist.xlsx');
 video_name_list = videoInfo(1:end,1);
