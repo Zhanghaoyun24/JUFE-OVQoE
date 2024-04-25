@@ -16,8 +16,6 @@ hmdata_files = dir([hmdata_path, '*.csv']);
 for k = 1:length(video_files)
     videoName = video_files(k).name;
     videoPath = [video_path, videoName];
-    
-    % 获取当前视频对应的hm_data文件
     hmdata_file = fullfile(hmdata_path, [videoName(1:end-4), '.csv']);
 
     if exist(hmdata_file, 'file')
@@ -28,8 +26,6 @@ for k = 1:length(video_files)
 
         [~, ~, eyeData] = xlsread(hmdata_file);
         num_frames = size(eyeData, 1);
-
-        % 计算新的viewport_size
         viewport_horizontal = floor(FOV_horizontal / (2*pi) * width);
         viewport_vertical = floor(FOV_vertical / pi * height);
         savePath = [save_path, '/'];
@@ -43,15 +39,11 @@ for k = 1:length(video_files)
         open(videoWriter);
         index = 1;
 
-        % 读取视频的每一帧
         while hasFrame(videoReader)
             frame = readFrame(videoReader);
-            
-            % 从头动数据中获取经度和纬度信息
             lat = deg2rad(cell2mat(eyeData(index,1)));
             lon = deg2rad(cell2mat(eyeData(index,2)));
 
-            % 裁剪视口区域，分别对每个颜色通道进行裁剪
             rimg1 = cut_patch2(frame(:,:,1), lon, -lat, viewport_horizontal, viewport_vertical);
             rimg2 = cut_patch2(frame(:,:,2), lon, -lat, viewport_horizontal, viewport_vertical);
             rimg3 = cut_patch2(frame(:,:,3), lon, -lat, viewport_horizontal, viewport_vertical);
@@ -59,15 +51,10 @@ for k = 1:length(video_files)
             rimg2 = uint8(rimg2);
             rimg3 = uint8(rimg3);
             rimg = cat(3, rimg1, rimg2, rimg3);
-
-            % 将裁剪后的帧写入新视频
             writeVideo(videoWriter, rimg);
-            
             index = index + 2;
             fprintf('Video: %s, frame: %d\n', videoName, videoReader.CurrentTime * fps);
         end
-
-        % 关闭VideoWriter对象
         close(videoWriter);
     else
         fprintf('HM data file not found for video: %s\n', videoName);
