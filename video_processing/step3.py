@@ -37,7 +37,6 @@ for video_path in video_paths:
                     os.system(
                         f'ffmpeg -i {seg1} -i {seg2} -filter_complex "[0:v:0][1:v:0]concat=n=2:v=1:a=0[outv]" -map "[outv]" -vsync 2 LS/{video[:-12]}/{video[:-12]}_{seg1[-11:-9]}{seg2[-11:-9]}.mp4'
                     )
-        # 处理完一类视频后初始化
-        video_seg1_list = []
-        video_seg2_list = []
-
+        
+        video_seg1_list.clear()
+        video_seg2_list.clear()
