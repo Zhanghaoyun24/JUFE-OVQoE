@@ -2,13 +2,13 @@ clc;
 clear all;
 
 video_path = 'D:\Unity projects\VRQoE\Test_session\video\';  % 修改为你的视频路径
-hmdata_path = './final_myhmd/user4/';  
+hmdata_path = './final_myhmd/user/';  
 
 % 视口大小设置
 FOV_horizontal = deg2rad(120);
 FOV_vertical = deg2rad(120);
 
-save_path = './Viewport/user4_2/';
+save_path = './viewport/';
 
 video_files = dir([video_path, '*.mp4']);
 hmdata_files = dir([hmdata_path, '*.csv']);
