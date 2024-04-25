@@ -1,7 +1,7 @@
 clc;
 clear all;
 
-video_path = 'D:\Unity projects\VRQoE\Test_session\video\';  % 修改为你的视频路径
+video_path = 'D:\Unity projects\VRQoE\Test_session\video\';  % Change to your video path
 hmdata_path = './final_myhmd/user/';  
 
 % 视口大小设置
