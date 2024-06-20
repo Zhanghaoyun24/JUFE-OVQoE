@@ -21,6 +21,6 @@ Please cite our papers if it helps your research:
 @inproceedings{liu2024icip,
 title={Quality of Experience of viewport adaptive omnidirectional video streaming},
 author={Liu, Xuelin and Zhang, Haoyun and Yan, Jiebin and Zhang, Hao and Fang, Yuming and Wang, Shiqi},
-booktitle={Submitted to IEEE ICIP},
+booktitle={IEEE ICIP},
 year={2024}
 }
