@@ -44,9 +44,9 @@ for k = 1:length(video_files)
             lat = deg2rad(cell2mat(eyeData(index,1)));
             lon = deg2rad(cell2mat(eyeData(index,2)));
 
-            rimg1 = cut_patch2(frame(:,:,1), lon, -lat, viewport_horizontal, viewport_vertical);
-            rimg2 = cut_patch2(frame(:,:,2), lon, -lat, viewport_horizontal, viewport_vertical);
-            rimg3 = cut_patch2(frame(:,:,3), lon, -lat, viewport_horizontal, viewport_vertical);
+            rimg1 = cut_patch(frame(:,:,1), lon, -lat, viewport_horizontal, viewport_vertical);
+            rimg2 = cut_patch(frame(:,:,2), lon, -lat, viewport_horizontal, viewport_vertical);
+            rimg3 = cut_patch(frame(:,:,3), lon, -lat, viewport_horizontal, viewport_vertical);
             rimg1 = uint8(rimg1);
             rimg2 = uint8(rimg2);
             rimg3 = uint8(rimg3);
